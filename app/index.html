@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI — Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
+    <h1>Leonida Trophy Guide &amp; Tracker</h1>
+    <p class="sub">All 55 trophies, in your own words, with sources. Tick them off as you earn them — progress stays in this browser.</p>
+  </div>
+  <div class="progress-card" aria-label="Overall progress">
+    <p class="big" id="progress-text">0 / 55 earned</p>
+    <div class="bar" role="progressbar" aria-label="Overall progress"><div id="progress-fill"></div></div>
+    <p id="platinum-left">Platinum needs 54 more trophies.</p>
+    <div id="grade-bars"></div>
+  </div>
+</header>
+
+
+<section class="controls" aria-label="Filters and tools">
+  <label class="search-label">Search <input id="search" type="search" placeholder="Trophy, mission or place…" autocomplete="off"></label>
+  <label>Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="online">Online (none in this list)</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Earned
+    <select id="earned-filter">
+      <option value="all">All trophies</option>
+      <option value="earned">Earned only</option>
+      <option value="unearned">Not earned yet</option>
+    </select>
+  </label>
+  <label class="toggle"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <button id="export" type="button">Export progress</button>
+  <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+  <button id="reset" type="button">Reset progress</button>
+</section>
+<p id="result-count" class="result-count" aria-live="polite"></p>
+
+<main id="list" class="list"></main>
+
+<section class="roadmap" id="roadmap">
+  <h2>Platinum roadmap</h2>
+  <p class="roadmap-intro">Play it in this order. Story first, side stories next, then the long counts. Only one trophy is reported as possibly missable — it is flagged in red below and on its card.</p>
+  <ol class="steps">
+    <li><strong>Step 1 — Story, Chapters 1–2.</strong> Play Gone Fishing, then Chapters 1 and 2. In Chapter 1, do Lucia&rsquo;s balcony meditation (see <em>Positive Mental Attitude</em>) — it disappears when Chapter 1 ends. Keep a manual save at the start of every chapter. Character switching unlocks after Breakfast Run.</li>
+    <li><strong>Step 2 — Story, Chapters 3–4.</strong> In Chapter 3, get the Snap Gun from Yasmani&rsquo;s Jewelry Jobs and do the time-sensitive Race Against Yago the moment it appears. Near the end of Chapter 4, do That&rsquo;s Where The Money Is to unlock bank vaults.</li>
+    <li><strong>Step 3 — Finish the story.</strong> Complete the final mission for the gold trophy, and keep one untouched manual save from just before it. There is no mission replay and no New Game Plus.</li>
+    <li><strong>Step 4 — Side-story finales.</strong> Finish the final missions for Andy (Lucia-only), Kenton, Billy, Randy, Tyrone (Jason-only) and Bret&rsquo;s hunt (Jason-only). All stay open after the credits, and 8 other stranger strands complete <em>Strangers &amp; Freaks</em>.</li>
+    <li><strong>Step 5 — Robberies &amp; partner trophies.</strong> 5 bank vaults, 1 armored truck, 1 jewelry store undetected, 1 illegal operation from each of the 9 gangs, 3 shops in a row with your partner, and a 4-star escape with your partner.</li>
+    <li><strong>Step 6 — Collectibles.</strong> 100 WAiNK scans, 3 card sets, 100 vehicles discovered, all 18 meditation spots, explore all of Leonida, 8 garages, 10 Scooter Bros registrations.</li>
+    <li><strong>Step 7 — Activities &amp; the long grind.</strong> 250 stunts (300 for 100%), 42 shooting-range golds, 14 drone-race wins, 20 different race wins, 50 Challenges, $250,000 laundered, $100,000 spent — then finish the 100% checklist for <em>A Long Road</em>, and the Platinum pops.</li>
+  </ol>
+  <p class="missable-note" id="missable-note">&#9888; Missable: <strong>Positive Mental Attitude</strong> — Lucia&rsquo;s balcony meditation in Chapter 1 is the only trophy launch-week guides flag as possibly missable. Everything else is reported to stay available after the story.</p>
+</section>
+
+<footer>
+  <p>Official trophy names and descriptions are shown as PlayStation publishes them. Every guide is written in our own words; each one names its sources beside it — a source is cited, never copied. Counts (42 shooting-range challenges, 14 drone locations, 18 meditation spots, 8 garages, 9 gangs) were cross-checked against Push Square, Output Lag and Planet GTA 6 (Exophase / PSNProfiles). Five hidden trophies have no confirmed unlock method at launch and are marked UNCONFIRMED in their guides. All 55 trophies are single-player; there are no online trophies. This guide works fully offline and makes no network requests.</p>
+  <p class="fine">Grand Theft Auto VI is developed and published by Rockstar Games. This is an unofficial fan-made guide; it uses no Rockstar logo, artwork, box art or game screenshots.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
