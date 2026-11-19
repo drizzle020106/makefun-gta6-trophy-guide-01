@@ -1,5 +1,1 @@
-[
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
-]
+[{"file":"1-cover.jpg","note":"Checklist with a guide open, progress bars and filters visible","path":"/","viewport":{"height":1040,"width":1280}},{"file":"2-spoiler-missable.jpg","note":"Spoiler-safe mode on: 18 hidden story trophies masked; missable trophy flagged","path":"/?spoiler=1","viewport":{"height":800,"width":1280}},{"file":"3-progress-roadmap.jpg","note":"Progress with several trophies earned, scrolled to the 7-step platinum roadmap","path":"/","viewport":{"height":800,"width":1280}},{"file":"4-filter-silver.jpg","note":"Grade filter set to silver: 6 trophies shown","path":"/?grade=silver","viewport":{"height":800,"width":1280}}]
