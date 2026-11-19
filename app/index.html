@@ -1,83 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI — Trophy Guide &amp; Tracker</title>
+<title>GTA VI Trophy Guide &amp; Tracker — All 55 PS5 Trophies</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <div>
-    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
-    <h1>Leonida Trophy Guide &amp; Tracker</h1>
-    <p class="sub">All 55 trophies, in your own words, with sources. Tick them off as you earn them — progress stays in this browser.</p>
-  </div>
-  <div class="progress-card" aria-label="Overall progress">
-    <p class="big" id="progress-text">0 / 55 earned</p>
-    <div class="bar" role="progressbar" aria-label="Overall progress"><div id="progress-fill"></div></div>
-    <p id="platinum-left">Platinum needs 54 more trophies.</p>
-    <div id="grade-bars"></div>
-  </div>
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="lede">Every one of the 55 PS5 trophies — official name, description and grade, a guide in our own words with its sources, and a checklist that saves in your browser. 1 platinum, 2 gold, 6 silver, 46 bronze. 28 are hidden on PlayStation until earned. No online trophies. About 200 hours to the platinum.</p>
+  <p class="facts">Sources for names, grades and hidden flags: Exophase / PSNProfiles, cross-checked by <a href="https://www.planetgta6.com/en/gta-6-trophies/">Planet GTA 6</a>, <a href="https://outputlag.com/guides/gta-6-trophy-list/">Output Lag</a> and <a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square</a>. Guide methods cite their source beside each trophy.</p>
 </header>
 
-
-<section class="controls" aria-label="Filters and tools">
-  <label class="search-label">Search <input id="search" type="search" placeholder="Trophy, mission or place…" autocomplete="off"></label>
-  <label>Kind
-    <select id="kind">
-      <option value="all">All kinds</option>
-      <option value="story">Story</option>
-      <option value="missable">Missable</option>
-      <option value="collectibles">Collectibles</option>
-      <option value="activities">Activities</option>
-      <option value="online">Online (none in this list)</option>
-    </select>
-  </label>
-  <label>Grade
-    <select id="grade">
-      <option value="all">All grades</option>
-      <option value="platinum">Platinum</option>
-      <option value="gold">Gold</option>
-      <option value="silver">Silver</option>
-      <option value="bronze">Bronze</option>
-    </select>
-  </label>
-  <label>Earned
-    <select id="earned-filter">
-      <option value="all">All trophies</option>
-      <option value="earned">Earned only</option>
-      <option value="unearned">Not earned yet</option>
-    </select>
-  </label>
-  <label class="toggle"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
-  <button id="reset" type="button">Reset progress</button>
+<main>
+<section class="panel" id="progress-panel" aria-label="Progress">
+  <h2>Your progress</h2>
+  <p class="big" id="progress-summary">0 / 55 earned</p>
+  <p class="platinum-line" id="platinum-line">Platinum needs 54 more trophies.</p>
+  <div class="bar" role="progressbar" aria-label="Total progress"><div class="bar-fill" id="total-bar" style="width:0%"></div></div>
+  <div class="grade-bars" id="grade-bars"></div>
+  <p class="hint">Tick a trophy when you earn it. Progress is saved in this browser (localStorage) and survives a refresh. Export it to a file before you clear your browser data.</p>
 </section>
-<p id="result-count" class="result-count" aria-live="polite"></p>
 
-<main id="list" class="list"></main>
+<section class="panel" id="controls" aria-label="Filters and tools">
+  <h2>Find a trophy</h2>
+  <div class="controls-row">
+    <label>Search <input type="search" id="search" placeholder="Search name, description or guide…" autocomplete="off"></label>
+    <label>Kind
+      <select id="kind-filter">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="missable">Missable</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="activities">Activities</option>
+        <option value="online">Online</option>
+      </select>
+    </label>
+    <label>Grade
+      <select id="grade-filter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Earned
+      <select id="earned-filter">
+        <option value="all">Earned &amp; unearned</option>
+        <option value="earned">Earned only</option>
+        <option value="unearned">Unearned only</option>
+      </select>
+    </label>
+  </div>
+  <div class="controls-row">
+    <label class="spoiler-label"><input type="checkbox" id="spoiler-toggle"> Spoiler-safe mode — hide the names and descriptions of the 18 hidden story trophies until earned</label>
+  </div>
+  <div class="controls-row">
+    <button type="button" id="export-btn">Export progress</button>
+    <button type="button" id="import-btn">Import progress</button>
+    <input type="file" id="import-file" accept=".json,application/json" hidden>
+    <button type="button" id="reset-btn">Reset progress</button>
+    <span class="tool-note" id="tool-note" role="status"></span>
+  </div>
+  <p class="hint" id="count-line"></p>
+</section>
 
-<section class="roadmap" id="roadmap">
-  <h2>Platinum roadmap</h2>
-  <p class="roadmap-intro">Play it in this order. Story first, side stories next, then the long counts. Only one trophy is reported as possibly missable — it is flagged in red below and on its card.</p>
-  <ol class="steps">
-    <li><strong>Step 1 — Story, Chapters 1–2.</strong> Play Gone Fishing, then Chapters 1 and 2. In Chapter 1, do Lucia&rsquo;s balcony meditation (see <em>Positive Mental Attitude</em>) — it disappears when Chapter 1 ends. Keep a manual save at the start of every chapter. Character switching unlocks after Breakfast Run.</li>
-    <li><strong>Step 2 — Story, Chapters 3–4.</strong> In Chapter 3, get the Snap Gun from Yasmani&rsquo;s Jewelry Jobs and do the time-sensitive Race Against Yago the moment it appears. Near the end of Chapter 4, do That&rsquo;s Where The Money Is to unlock bank vaults.</li>
-    <li><strong>Step 3 — Finish the story.</strong> Complete the final mission for the gold trophy, and keep one untouched manual save from just before it. There is no mission replay and no New Game Plus.</li>
-    <li><strong>Step 4 — Side-story finales.</strong> Finish the final missions for Andy (Lucia-only), Kenton, Billy, Randy, Tyrone (Jason-only) and Bret&rsquo;s hunt (Jason-only). All stay open after the credits, and 8 other stranger strands complete <em>Strangers &amp; Freaks</em>.</li>
-    <li><strong>Step 5 — Robberies &amp; partner trophies.</strong> 5 bank vaults, 1 armored truck, 1 jewelry store undetected, 1 illegal operation from each of the 9 gangs, 3 shops in a row with your partner, and a 4-star escape with your partner.</li>
-    <li><strong>Step 6 — Collectibles.</strong> 100 WAiNK scans, 3 card sets, 100 vehicles discovered, all 18 meditation spots, explore all of Leonida, 8 garages, 10 Scooter Bros registrations.</li>
-    <li><strong>Step 7 — Activities &amp; the long grind.</strong> 250 stunts (300 for 100%), 42 shooting-range golds, 14 drone-race wins, 20 different race wins, 50 Challenges, $250,000 laundered, $100,000 spent — then finish the 100% checklist for <em>A Long Road</em>, and the Platinum pops.</li>
+<section aria-label="Trophy checklist">
+  <h2 class="list-heading">Checklist — <span id="shown-count">55</span> trophies</h2>
+  <p class="hint" id="online-note" hidden>There are no online trophies in GTA VI at launch — this list is single-player only, so the online filter shows 0 trophies.</p>
+  <div id="trophy-list"></div>
+  <p class="hint" id="no-results" hidden>No trophies match these filters. Try clearing the search or choosing another kind or grade.</p>
+</section>
+
+<section class="panel" id="roadmap-panel" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum — 7 steps</h2>
+  <ol class="roadmap">
+    <li><strong>Step 1 — Chapters 1–2.</strong> Play the story. In Chapter 1, do Lucia's balcony meditation (the one possibly missable trophy) and keep a manual save at the start of every chapter — there is no mission replay. Beat Cal at fishing and finish an arcade game while you are here.</li>
+    <li><strong>Step 2 — Chapters 3–4.</strong> Keep playing the story. Do Yago's Race Against Yago the moment it appears in Chapter 3 (time-sensitive). In Chapter 3, take the Snap Gun jewelry job; near the end of Chapter 4, take That's Where The Money Is to open the bank vaults.</li>
+    <li><strong>Step 3 — Finish the story.</strong> Complete the final mission (gold). Keep an untouched manual save from just before it. After the credits, free roam stays open and the 100% checklist appears under Progress &gt; Stats &gt; 100% Completion.</li>
+    <li><strong>Step 4 — Six side-story finales.</strong> Finish the final missions for Andy (Lucia-only), Billy, Kenton, Randy, Tyrone (Jason-only) and Bret's hunting questline (Jason-only). All stay open after the credits.</li>
+    <li><strong>Step 5 — Robberies &amp; partner jobs.</strong> 5 bank vaults, a jewelry store unseen, an armored truck, one illegal operation per gang (9 gangs), 3 shops in a row with your partner, and a 4-star escape with your partner. These feed the money trophies too.</li>
+    <li><strong>Step 6 — Collectibles.</strong> WAiNK It at 100 locations, 3 card sets, 100 vehicles discovered, every meditation spot, and explore all of Leonida. Scan traffic with WAiNK as you travel — it counts for two trophies at once.</li>
+    <li><strong>Step 7 — The long grind + 100%.</strong> 250 stunts (300 for 100%), 50 Challenges (70 for 100%), 20 races, drone-race wins at all 14 locations, gold at all 42 Shooting Range challenges, then finish the 100% checklist for A Long Road (gold) — and the platinum pops right after.</li>
   </ol>
-  <p class="missable-note" id="missable-note">&#9888; Missable: <strong>Positive Mental Attitude</strong> — Lucia&rsquo;s balcony meditation in Chapter 1 is the only trophy launch-week guides flag as possibly missable. Everything else is reported to stay available after the story.</p>
+  <p class="hint">Missable warning: only <strong>Positive Mental Attitude</strong> is reported as possibly missable (the Chapter 1 balcony meditation). Every other trophy stays available after the story. Never use cheats on your trophy save — they should switch off trophies and saving.</p>
 </section>
+</main>
 
 <footer>
-  <p>Official trophy names and descriptions are shown as PlayStation publishes them. Every guide is written in our own words; each one names its sources beside it — a source is cited, never copied. Counts (42 shooting-range challenges, 14 drone locations, 18 meditation spots, 8 garages, 9 gangs) were cross-checked against Push Square, Output Lag and Planet GTA 6 (Exophase / PSNProfiles). Five hidden trophies have no confirmed unlock method at launch and are marked UNCONFIRMED in their guides. All 55 trophies are single-player; there are no online trophies. This guide works fully offline and makes no network requests.</p>
-  <p class="fine">Grand Theft Auto VI is developed and published by Rockstar Games. This is an unofficial fan-made guide; it uses no Rockstar logo, artwork, box art or game screenshots.</p>
+  <p>Guide text is written in our own words for this entry; each trophy names its sources. Official trophy names and descriptions are shown as PlayStation publishes them. No Rockstar artwork is used. This page loads nothing from the network and works with the network off.</p>
 </footer>
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
